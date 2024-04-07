@@ -1,16 +1,15 @@
-from utils.weighting import weighted_p_list
-from methods.bonf import bonferroni
-from methods.holm_bonf import holm
-from methods.sgof import sgof_test
-from methods.BH import bh_method
-from methods.qval import q_value
-from methods.BY import BY_method
+from multidst.utils.weighting import weighted_p_list
+from multidst.methods.bonf import bonferroni
+from multidst.methods.holm_bonf import holm
+from multidst.methods.sgof import sgof_test
+from multidst.methods.BH import bh_method
+from multidst.methods.qval import q_value
+from multidst.methods.BY import BY_method
 
-from utils.visualization import draw_histogram
-from utils.visualization import sig_index_plot
-from utils.visualization import draw_p_bar_chart
-from utils.visualization import plot_heatmap 
-from utils.visualization import fire_hist
+# from multidst.utils.visualization import draw_histogram
+# from multidst.utils.visualization import sigindex_plot
+# from multidst.utils.visualization import draw_p_bar_chart
+# from multidst.utils.visualization import fire_hist
 
 
 def multi_DST(p_values, alpha=0.05):

@@ -13,7 +13,6 @@ from utils.visualization import plot_heatmap
 from utils.visualization import fire_hist
 
 
-
 def multi_DST(p_values, alpha=0.05):
     """
     Conducts all 06 multiple testing methods to return significant indices under each method.

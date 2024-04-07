@@ -1,6 +1,14 @@
+### Necessary libraries
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+
 def draw_histogram(data, bins=10, color='skyblue', edgecolor='black', title='Histogram', xlabel='Values', ylabel='Frequency'):
-    import matplotlib.pyplot as plt
-    import numpy as np
     """
     Draw a histogram using user-defined function.
 
@@ -26,9 +34,6 @@ def draw_histogram(data, bins=10, color='skyblue', edgecolor='black', title='His
 #############################################################################################
 
 def group_line_plot(df_select, g_var,var1,var2): 
-    import pandas as pd
-    import matplotlib.pyplot as plt
-
     # Grouping the DataFrame by 'pi0'
     grouped = df_select.groupby(g_var)
 
@@ -43,6 +48,8 @@ def group_line_plot(df_select, g_var,var1,var2):
     plt.grid(True)
     plt.legend()
     plt.show()
+
+
 ###########################################################################################################
 def draw_bar_chart(categories, values, title='Bar Chart', xlabel='Categories', ylabel='Values', border_color='grey'):
     """
@@ -69,54 +76,7 @@ def draw_bar_chart(categories, values, title='Bar Chart', xlabel='Categories', y
     plt.xticks(fontname='Times New Roman', fontsize=15) 
     plt.show()
 
-import matplotlib.pyplot as plt
-
-def draw_p_bar_chart(categories, values, title='Bar Chart', xlabel='Type', ylabel='Values', border_color='grey'):
-    """
-    Draw a bar chart using user-defined function.
-
-    Parameters:
-        categories (list): List of category labels.
-        values (list): List of corresponding values for each category.
-        title (str): Title of the chart (default is 'Bar Chart').
-        xlabel (str): Label for the x-axis (default is 'Categories').
-        ylabel (str): Label for the y-axis (default is 'Values').
-        border_color (str): Color of the borders (default is 'black').
-    """
-    colors = ['steelblue', 'greenyellow']
-    bars = plt.bar(categories, values, color=colors)
-    
-    # Add borders to bars
-    for bar in bars:
-        bar.set_edgecolor(border_color)
-    
-    plt.title(title, fontname='Times New Roman',fontsize=15)
-    plt.xlabel(xlabel, fontname='Times New Roman',fontsize=13)
-    plt.ylabel(ylabel, fontname='Times New Roman', fontsize=13)
-    plt.xticks(fontname='Times New Roman', fontsize=10)  # Set font for category labels
-    
-    # Adding percentage labels on bars
-    total = sum(values)
-    for bar in bars:
-        height = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width() / 2, height/2, f'{height / total * 100:.2f}%', ha='center', va='bottom', color= "black", fontname='Bahnschrift Light', fontsize=15)
-    
-    plt.ylim(0,100)
-    plt.yticks(range(0,101,10), fontsize=10)
-
-    plt.show()
-
-# Example usage:
-categories = ['A', 'B']
-values = [40, 60]
-draw_p_bar_chart(categories, values, title='Percentage Bar Chart', ylabel='Percentage')
-
-
-
-
-
-import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
+#######################################################################################################
 
 def draw_p_bar_chart(categories, values, title='Bar Chart', xlabel='Type', ylabel='Values', border_color='grey'):
     """
@@ -157,20 +117,10 @@ def draw_p_bar_chart(categories, values, title='Bar Chart', xlabel='Type', ylabe
 
     plt.show()
 
-# Example usage:
-categories = ['A', 'B']
-values = [40, 60]
-draw_p_bar_chart(categories, values, title='Percentage Bar Chart', ylabel='Percentage')
-
-
-
-
-
-
-
-
-
-
+# # Example usage:
+# categories = ['A', 'B']
+# values = [40, 60]
+# draw_p_bar_chart(categories, values, title='Percentage Bar Chart', ylabel='Percentage')
 
 ##############################################################################
 
@@ -186,22 +136,19 @@ def plot_roc(methods, tpr_list, fpr_list):
     plt.grid(True)
     plt.show()
 
-# Example data for TPR and FPR for 7 different methods
-methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6', 'Method 7']
-tpr_list = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
-            [0.15, 0.35, 0.55, 0.75, 0.85], [0.25, 0.45, 0.65, 0.8, 0.95], [0.1, 0.2, 0.3, 0.4, 0.5],
-            [0.05, 0.1, 0.15, 0.2, 0.25]]
-fpr_list = [[0.1, 0.2, 0.3, 0.4, 0.5], [0.15, 0.25, 0.35, 0.45, 0.55], [0.05, 0.15, 0.25, 0.35, 0.45],
-            [0.1, 0.2, 0.3, 0.4, 0.5], [0.08, 0.18, 0.28, 0.38, 0.48], [0.05, 0.1, 0.15, 0.2, 0.25],
-            [0.01, 0.05, 0.1, 0.15, 0.2]]
+# # Example data for TPR and FPR for 7 different methods
+# methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6', 'Method 7']
+# tpr_list = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
+#             [0.15, 0.35, 0.55, 0.75, 0.85], [0.25, 0.45, 0.65, 0.8, 0.95], [0.1, 0.2, 0.3, 0.4, 0.5],
+#             [0.05, 0.1, 0.15, 0.2, 0.25]]
+# fpr_list = [[0.1, 0.2, 0.3, 0.4, 0.5], [0.15, 0.25, 0.35, 0.45, 0.55], [0.05, 0.15, 0.25, 0.35, 0.45],
+#             [0.1, 0.2, 0.3, 0.4, 0.5], [0.08, 0.18, 0.28, 0.38, 0.48], [0.05, 0.1, 0.15, 0.2, 0.25],
+#             [0.01, 0.05, 0.1, 0.15, 0.2]]
 
-plot_roc(methods, tpr_list, fpr_list)
+# plot_roc(methods, tpr_list, fpr_list)
 
 
 #########################################################################################
-
-
-import matplotlib.pyplot as plt
 
 def plot_power_effect(methods, effect_sizes, powers_s0, powers_s1, powers_s2=None, titles=None, x_labels=None, y_labels=None):
     num_plots = 2 if powers_s2 is None else 3
@@ -249,44 +196,36 @@ def plot_power_effect(methods, effect_sizes, powers_s0, powers_s1, powers_s2=Non
 
 
 
-# Example data for effect sizes and powers for 7 different methods
-methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6', 'Method 7']
-effect_sizes = [0.1, 0.2, 0.3, 0.4, 0.5]
-powers_s0 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
-             [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
-powers_s1 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
-             [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
+# # Example data for effect sizes and powers for 7 different methods
+# methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6', 'Method 7']
+# effect_sizes = [0.1, 0.2, 0.3, 0.4, 0.5]
+# powers_s0 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
+#              [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
+# powers_s1 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
+#              [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
 
-titles =['Custom Title 1', 'Custom Title 2', 'Custom Title 3']
-x_labels = ['Effect size','Effect size','Effect size']
-y_labels = ['Power','Power','Power']
-plot_power_effect(methods, effect_sizes, powers_s0, powers_s1, titles=titles)
+# titles =['Custom Title 1', 'Custom Title 2', 'Custom Title 3']
+# x_labels = ['Effect size','Effect size','Effect size']
+# y_labels = ['Power','Power','Power']
+# plot_power_effect(methods, effect_sizes, powers_s0, powers_s1, titles=titles)
 
 
-# For the n plot
-methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6', 'Method 7']
-effect_sizes = [0.1, 0.2, 0.3, 0.4, 0.5]
-powers_n0 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
-             [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
-powers_n1 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
-             [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
-powers_n2 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
-             [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
+# # For the n plot
+# methods = ['Method 1', 'Method 2', 'Method 3', 'Method 4', 'Method 5', 'Method 6', 'Method 7']
+# effect_sizes = [0.1, 0.2, 0.3, 0.4, 0.5]
+# powers_n0 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
+#              [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
+# powers_n1 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
+#              [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
+# powers_n2 = [[0.2, 0.4, 0.6, 0.8, 1.0], [0.3, 0.5, 0.7, 0.85, 0.95], [0.1, 0.3, 0.5, 0.75, 0.9],
+#              [0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0],[0.2, 0.4, 0.6, 0.8, 1.0]]
 
-titles =['Custom Title 1', 'Custom Title 2', 'Custom Title 3']
-plot_power_effect(methods, effect_sizes, powers_n0, powers_n1, powers_n2, titles=titles)
+# titles =['Custom Title 1', 'Custom Title 2', 'Custom Title 3']
+# plot_power_effect(methods, effect_sizes, powers_n0, powers_n1, powers_n2, titles=titles)
 
 ###############################################################################################################
 
 ## Heatplot with sig indices
-
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
-
 def plot_heatmap(methods, sig_indices, title=None):
     sig_indices = [i if i else [0] for i in sig_indices]
     # Create a matrix to represent the selected points for each method

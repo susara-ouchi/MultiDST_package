@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: multidst
+Version: 0.0.2
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: statsmodels
+Requires-Dist: matplotlib
+Provides-Extra: dev
+Requires-Dist: twine>4.0.2; extra == "dev"
