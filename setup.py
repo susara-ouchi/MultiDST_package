@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='MultiDST_package',
+    name='multidst',
     version='0.0.1',
     packages=find_packages(),  # Automatically find all packages and subpackages
     install_requires=[
@@ -16,3 +16,4 @@ setup(
     },
     python_requires=">=3.10",
 )
+
