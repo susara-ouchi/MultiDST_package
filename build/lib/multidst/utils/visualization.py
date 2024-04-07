@@ -226,7 +226,7 @@ def plot_power_effect(methods, effect_sizes, powers_s0, powers_s1, powers_s2=Non
 ###############################################################################################################
 
 ## Heatplot with sig indices
-def plot_heatmap(methods, sig_indices, title=None):
+def sigindex_plot(methods, sig_indices, title=None):
     sig_indices = [i if i else [0] for i in sig_indices]
     # Create a matrix to represent the selected points for each method
     max_index = max(max(indices) for indices in sig_indices)
@@ -263,7 +263,7 @@ def plot_heatmap(methods, sig_indices, title=None):
 methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
 # sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
 sig_indices = [[1],[1,2],[1,2],[],[1,2],[1,2]]
-plot_heatmap(methods, sig_indices)
+sigindex_plot(methods, sig_indices, title="NEw Title")
 
 ########################################################################################################
 

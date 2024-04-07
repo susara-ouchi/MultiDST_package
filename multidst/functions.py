@@ -1,4 +1,3 @@
-from multidst.utils.weighting import weighted_p_list
 from multidst.methods.bonf import bonferroni
 from multidst.methods.holm_bonf import holm
 from multidst.methods.sgof import sgof_test
@@ -7,12 +6,12 @@ from multidst.methods.qval import q_value
 from multidst.methods.BY import BY_method
 
 # from multidst.utils.visualization import draw_histogram
-# from multidst.utils.visualization import sigindex_plot
+from multidst.utils.visualization import sigindex_plot
 # from multidst.utils.visualization import draw_p_bar_chart
 # from multidst.utils.visualization import fire_hist
 
 
-def multi_DST(p_values, alpha=0.05):
+def multitest(p_values, alpha=0.05, sigplot=False):
     """
     Conducts all 06 multiple testing methods to return significant indices under each method.
     Input: list of p-values, threshold, weights (list)
@@ -52,6 +51,11 @@ def multi_DST(p_values, alpha=0.05):
     q, sig_q,pi0_est = q_results[0], q_results[1],q_results[2]
     # q_count = len(sig_q)
 
+    if sigplot == True:
+        methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
+        sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
+        sigindex_plot(methods, sig_indices, title="Significant Index Plot")
+
     return {
         "Uncorrected": sig_index,
         "Bonferroni": sig_bonf_p,
@@ -65,8 +69,8 @@ def multi_DST(p_values, alpha=0.05):
 
 
 import random
-p_values = [random.uniform(0,1) for i in range(100)]
-multi_DST(p_values, alpha=0.05)
-
+p_values = [random.uniform(0,1) for i in range(1000)]
+multitest(p_values, alpha=0.05, sigplot=True)
+multitest(p_values, alpha=0.05, sigplot=False)
 
 

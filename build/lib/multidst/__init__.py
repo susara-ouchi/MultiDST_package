@@ -1,3 +1,3 @@
 from .methods import *
 from .utils import *
-from .functions import multi_DST
+from .functions import multitest

@@ -1,0 +1,6 @@
+# To install package locally
+pip install dist/multidst-0.0.2-py3-none-any.whl --force-install
+
+# To get wheel file
+ python setup.py sdist bdist_wheel
+
