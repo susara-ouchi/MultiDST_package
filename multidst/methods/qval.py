@@ -2,7 +2,7 @@ import numpy as np
 from scipy import interpolate
 
 # Function to calculate adjusted q_values
-def q_adj_func(p_values, pi0=None, m=None, verbose=True):
+def q_adj_func(p_values, pi0=None, m=None, verbose=False):
     """
     Estimates q-values from p-values
 
