@@ -288,4 +288,4 @@ def multidst_hist(p_values, g1_index, title="plot",col1 = 'skyblue', col2 = 'sky
 p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
 g1_index = [0,1,2,5,9,10]
 g2_index = [index for index,_ in enumerate(p_values) if index not in g1_index]
-multidst_hist(p_values,g1_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',left='firing',right='non-firing')
+# multidst_hist(p_values,g1_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',left='firing',right='non-firing')

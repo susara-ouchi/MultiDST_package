@@ -29,5 +29,5 @@ len(p_values)
 
 from multidst.utils.visualization import multidst_hist
 p_values = [random.uniform(0,0.03) for i in range(1000)]
-g1_index = list(range(900))
+g1_index = list(range(9))
 multidst_hist(p_values,g1_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',left='firing',right='non-firing')
