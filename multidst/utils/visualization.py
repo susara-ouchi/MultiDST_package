@@ -227,15 +227,15 @@ def plot_power_effect(methods, effect_sizes, powers_s0, powers_s1, powers_s2=Non
 
 ## Heatplot with sig indices
 def sigindex_plot(methods, sig_indices, title=None):
-    sig_indices = [i if i else [0] for i in sig_indices]
+    sig_indices = [i if i else [] for i in sig_indices]
     # Create a matrix to represent the selected points for each method
-    max_index = max(max(indices) for indices in sig_indices)
-    matrix = np.zeros((len(methods), max_index))
+    max_index = max(max(indices) for indices in sig_indices if indices!=[])
+    matrix = np.zeros((len(methods), max_index+1))
 
     # Fill the matrix with 1 where a method selected a point
     for i, indices in enumerate(sig_indices):
         for idx in indices:
-            matrix[i, idx - 1] = 1  # Subtract 1 to align with 0-based indexing
+            matrix[i, idx] = 1  # Subtract 1 to align with 0-based indexing
 
     # Plot the heatmap
     plt.figure(figsize=(9, 3))
@@ -262,16 +262,18 @@ def sigindex_plot(methods, sig_indices, title=None):
 # Example usage
 methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
 # sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
-sig_indices = [[1],[1,2],[1,2],[],[1,2],[1,2]]
-sigindex_plot(methods, sig_indices, title="NEw Title")
+sig_indices = [[0,1],[1,2,10],[1,2,14],[0,2],[1,2,13],[1,2,8]]
+# sig_indices = [[0,1,2,3],[2,5],[],[],[1],[]]
+# sigindex_plot(methods, sig_indices, title="New Title")
 
 ########################################################################################################
 
 # Fire histogram
 
-def fire_hist(p_values, fire_index, nonfire_index, title="plot",col1 = 'skyblue', col2 = 'skyblue',left='firing',right='non-firing'):
-      p_value_fire = [p_values[i] for i in fire_index]
-      p_value_nonfire = [p_values[i] for i in nonfire_index]
+def multidst_hist(p_values, g1_index, title="plot",col1 = 'skyblue', col2 = 'skyblue',left='firing',right='non-firing'):
+      p_value_fire = [p_values[i] for i in g1_index]
+      p_value_nonfire = [p_values[i] for i in range(len(p_values)) if i not in g1_index]
+
       hist_data = [p_value_fire, p_value_nonfire]
       plt.hist(hist_data, bins=30, alpha=1, label=[left, right], color=[col1, col2],
                edgecolor='black', stacked=True)
@@ -283,7 +285,7 @@ def fire_hist(p_values, fire_index, nonfire_index, title="plot",col1 = 'skyblue'
 
     #   return plt.gca().figure
 
-p_values = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
-fire_index = [0, 1, 2, 3]
-nonfire_index = [5, 6, 7, 8, 9]
-fire_hist(p_values, fire_index, nonfire_index)
+p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
+g1_index = [0,1,2,5,9,10]
+g2_index = [index for index,_ in enumerate(p_values) if index not in g1_index]
+# multidst_hist(p_values,g1_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',left='firing',right='non-firing')
