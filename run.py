@@ -4,7 +4,7 @@ import random
 from multidst.utils.visualization import sigindex_plot
 
 # Carrying out MultiDST for a list of p_values
-p_values = [random.uniform(0,10) for i in range(1000)]
+p_values = [random.uniform(0,0.03) for i in range(1000)]
 multitest(p_values, alpha=0.05,sigplot=True)
 
 # Carrying out MultiDST for a list of weighted p_values
@@ -12,6 +12,7 @@ from multidst.utils.weighting import weighted_p_list
 weights =  [random.uniform(0,100) for i in range(100)]
 p_values = [random.uniform(0,1) for i in range(100)]
 weighted_p_list(p_values, weights=weights)
+
 multitest(p_values, alpha=0.05)
 
 # Carrying out MultiDST under Multi-weighting

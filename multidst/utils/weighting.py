@@ -1,7 +1,10 @@
 #importing dependencies
 import numpy as np
+from multidst.functions import multitest
+from multidst.utils.common_indices import common_indices
 
-def weighted_p_list(p_values,l0=[], l1=[], l2=[], l3=[], l4=[], l5=[], l6=[],weights = [], max_weight=1.5, min_weight = 0.5):
+
+def weighted_p_list(p_values,weights = [], max_weight=1.5, min_weight = 0.5):
     """
     Generate weighted p-values based on the provided weights.
 
@@ -18,6 +21,14 @@ def weighted_p_list(p_values,l0=[], l1=[], l2=[], l3=[], l4=[], l5=[], l6=[],wei
 
     # Generate hypothesis weights
     if weights == "multi":
+        multiDST_res = multitest(p_values, alpha=0.05)
+        sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q = multiDST_res['Bonferroni'],multiDST_res['Holm'],multiDST_res['SGoF'],multiDST_res['BH'],multiDST_res['BY'], multiDST_res['Q-value']
+        multiDST_res = multitest(p_values, alpha=0.05)
+
+        sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q = multiDST_res['Bonferroni'],multiDST_res['Holm'],multiDST_res['SGoF'],multiDST_res['BH'],multiDST_res['BY'], multiDST_res['Q-value']
+        coms = common_indices(p_values,sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q)
+
+        l0, l1, l2, l3, l4, l5, l6 = coms[0],coms[1],coms[2],coms[3],coms[4],coms[5],coms[6]
         # Optimize weights
         opti_weights = optimize_weights(p_values, l0, l1, l2, l3, l4, l5, l6, k2=max_weight, k1 = min_weight)
         weights = opti_weights[0]
@@ -151,7 +162,7 @@ l4 = [13, 14, 15]  # Example list l4
 l5 = [16, 17, 18]  # Example list l5
 l6 = [19, 20, 21,0]  # Example list l6
 
-weighting = weighted_p_list(p_values, l0, l1, l2, l3, l4, l5, l6, weights="multi")
+weighting = weighted_p_list(p_values, weights="multi")
 weighting[0]
 weighting[1]
 
