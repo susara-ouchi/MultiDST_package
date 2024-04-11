@@ -21,7 +21,11 @@ weighting = weighted_p_list(p_values, weights="multi",max_weight=1.5, min_weight
 weighting[0]
 
 from multidst.utils.visualization import multidst_hist
-p_values = [random.uniform(0,0.03) for i in range(1000)]
+p_values = [random.uniform(0,0.5) for i in range(1000)]
 g2_index = []
-multidst_hist(p_values, g2_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',left='firing',right='non-firing')
+multidst_hist(p_values, g2_index, title="Histogram",col1 = 'skyblue', col2 = 'purple', show_legend=True, left='firing',right='non-firing')
+
+p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
+g2_index = [2,5,9,10]
+multidst_hist(p_values,g2_index, title="Histogram",col1 = 'skyblue', col2 = 'purple', show_legend=True, left='Original',right='Group 02')
 
