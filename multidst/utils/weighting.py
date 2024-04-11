@@ -27,9 +27,6 @@ def weighted_p_list(p_values,weights = None, max_weight=1.5, min_weight = 0.5):
         coms = common_indices(p_values,sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q)
         l0, l1, l2, l3, l4, l5, l6 = coms[0],coms[1],coms[2],coms[3],coms[4],coms[5],coms[6]
 
-        print("sum is = ",len(l0) + len(l1) + len(l2) + len(l3) + len(l4) + len(l5) + len(l6))
-        print("p-sum is = ",len(p_values))
-
         # Optimize weights
         opti_weights = optimize_weights(p_values, l0, l1, l2, l3, l4, l5, l6, k2=max_weight, k1 = min_weight)
         weights = opti_weights[0]
@@ -79,7 +76,6 @@ import numpy as np
 
 def optimize_weights(p_values, l0, l1, l2, l3, l4, l5, l6, k2=1.5, k1=0.5):
     m = len(p_values)
-    print("m = ",m)
 
     # Assert that the length of p_values is equal to the sum of lengths of l0 to l6
     assert len(p_values) == len(l0) + len(l1) + len(l2) + len(l3) + len(l4) + len(l5) + len(l6), "Length of p_values should be equal to the sum of lengths of l0 to l6"
