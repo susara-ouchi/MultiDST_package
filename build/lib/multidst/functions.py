@@ -5,13 +5,15 @@ from multidst.methods.BH import bh_method
 from multidst.methods.qval import q_value
 from multidst.methods.BY import BY_method
 
+import pandas as pd
+
 # from multidst.utils.visualization import draw_histogram
 from multidst.utils.visualization import sigindex_plot
 # from multidst.utils.visualization import draw_p_bar_chart
 # from multidst.utils.visualization import fire_hist
 
 
-def multitest(p_values, alpha=0.05, sigplot=False):
+def multitest(p_values, alpha=0.05, sigplot=False, results = False):
     """
     Conducts all 06 multiple testing methods to return significant indices under each method.
     Input: list of p-values, threshold, weights (list)
@@ -56,7 +58,7 @@ def multitest(p_values, alpha=0.05, sigplot=False):
         sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
         sigindex_plot(methods, sig_indices, title="Significant Index Plot")
 
-    return {
+    sig_dict = {
         "Uncorrected": sig_index,
         "Bonferroni": sig_bonf_p,
         "Holm": sig_holm_p,
@@ -67,10 +69,27 @@ def multitest(p_values, alpha=0.05, sigplot=False):
         "pi0 estimate": pi0_est
     }
 
+    if results == True:
+      sig_len_dict = {
+        "Uncorrected": len(sig_index),
+        "Bonferroni": len(sig_bonf_p),
+        "Holm": len(sig_holm_p),
+        "SGoF": len(sig_sgof_p),
+        "BH": len(sig_bh_p),
+        "BY": len(sig_by_p),
+        "Q-value": len(sig_q),
+        "pi0 estimate": pi0_est
+        }
+      
+      sig_df = pd.DataFrame(sig_len_dict, index=[0])
+      print("\n",sig_df, "\n")
+
+    return sig_dict
 
 import random
+
 p_values = [random.uniform(0,1) for i in range(1000)]
-multitest(p_values, alpha=0.05, sigplot=True)
-multitest(p_values, alpha=0.05, sigplot=False)
+multitest(p_values, alpha=0.05, sigplot=True, results = True)
+multitest(p_values, alpha=0.05, sigplot=False, results=True)
 
 
