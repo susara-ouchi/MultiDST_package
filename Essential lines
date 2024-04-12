@@ -1,6 +1,17 @@
 # To install package locally
-pip install dist/multidst-0.0.2-py3-none-any.whl --force-reinstall
+pip install dist/multidst-0.0.1-py3-none-any.whl --force-reinstall
 
 # To get wheel file
- python setup.py sdist bdist_wheel
+python setup.py sdist bdist_wheel
 
+## Token
+export TWINE_USERNAME = __token__
+export TWINE_PASSWORD = pypi-AgEIcHlwaS5vcmcCJGFiMjNkZjgzLTBjOWEtNDk2OC04MzcwLTk2ZjlmNDAzY2M2NAACKlszLCJlN2I1ZmVjMy04ODQ4LTRhMDEtYWVmNS0zMjc0YTZlMzk5YjYiXQAABiAv2IzAozfFWwDRBkpQh7QLSOibev937JfHj9TETmGVQQ
+
+__token__
+
+
+# Setting up Vertual Env
+> python -m venv .venv
+> Set-ExecutionPolicy Unrestricted -Scope Process
+> .venv\Scripts\activate

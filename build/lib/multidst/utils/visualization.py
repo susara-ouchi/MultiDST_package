@@ -286,6 +286,6 @@ def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'sky
 
     #   return plt.gca().figure
 
-p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
-g2_index = [2,5,9,10]
-multidst_hist(p_values,g2_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',show_legend=True, left='firing gene',right='non-firing')
+# p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
+# g2_index = [2,5,9,10]
+# multidst_hist(p_values,g2_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',show_legend=True, left='firing gene',right='non-firing')
