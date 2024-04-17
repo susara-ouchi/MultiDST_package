@@ -149,32 +149,32 @@ def optimize_weights(p_values, l0, l1, l2, l3, l4, l5, l6, k2=1.5, k1=0.5):
 ### Examples
 
 ## Example 01 - Using Multi-Weights
-p_values = np.random.random(22)
+# p_values = np.random.random(22)
 
-p_values
-l0 = [1, 2,3]  # Example list l0
-l1 = [4, 5, 6]  # Example list l1
-l2 = []  # Example list l2
-l3 = [10, 11, 12,7,8,9]  # Example list l3
-l4 = [13, 14, 15]  # Example list l4
-l5 = [16, 17, 18]  # Example list l5
-l6 = [19, 20, 21,0]  # Example list l6
+# p_values
+# l0 = [1, 2,3]  # Example list l0
+# l1 = [4, 5, 6]  # Example list l1
+# l2 = []  # Example list l2
+# l3 = [10, 11, 12,7,8,9]  # Example list l3
+# l4 = [13, 14, 15]  # Example list l4
+# l5 = [16, 17, 18]  # Example list l5
+# l6 = [19, 20, 21,0]  # Example list l6
 
-weighting = weighted_p_list(p_values, weights="multi")
-weighting[0]
-weighting[1]
+# weighting = weighted_p_list(p_values, weights="multi")
+# weighting[0]
+# weighting[1]
 
 
-# Example 02 - Using IHW
-p_values = [0.5, 0.05, 0.2, 0.3, 0.01]
-weights = [1.5, 0.8, 1.0, 0.5, 1.2]
+# # Example 02 - Using IHW
+# p_values = [0.5, 0.05, 0.2, 0.3, 0.01]
+# weights = [1.5, 0.8, 1.0, 0.5, 1.2]
 
-calculated_weights, calculated_weighted_p_values = weighted_p_list(p_values, weights=weights)
+# calculated_weights, calculated_weighted_p_values = weighted_p_list(p_values, weights=weights)
 
-# Print the calculated weights and weighted p-values
-print("Calculated weights:", calculated_weights)
-print("Calculated weighted p-values:", calculated_weighted_p_values)
+# # Print the calculated weights and weighted p-values
+# print("Calculated weights:", calculated_weights)
+# print("Calculated weighted p-values:", calculated_weighted_p_values)
 
-import random
-p_values = [random.uniform(0,0.03) for i in range(1000)]
-weighted_p_list(p_values, weights="multi",max_weight=1.5, min_weight = 0.5)[0]
+# import random
+# p_values = [random.uniform(0,0.03) for i in range(1000)]
+# weighted_p_list(p_values, weights="multi",max_weight=1.5, min_weight = 0.5)[0]

@@ -88,8 +88,8 @@ def multitest(p_values, alpha=0.05, sigplot=False, results = False):
 
 import random
 
-p_values = [random.uniform(0,1) for i in range(1000)]
-multitest(p_values, alpha=0.05, sigplot=True, results = True)
-multitest(p_values, alpha=0.05, sigplot=False, results=True)
+# p_values = [random.uniform(0,1) for i in range(1000)]
+# multitest(p_values, alpha=0.05, sigplot=True, results = True)
+# multitest(p_values, alpha=0.05, sigplot=False, results=True)
 
 
