@@ -1,7 +1,8 @@
 Metadata-Version: 2.1
 Name: multidst
-Version: 0.0.2
+Version: 0.0.3
 Requires-Python: >=3.10
+Description-Content-Type: text/markdown
 Requires-Dist: numpy
 Requires-Dist: pandas
 Requires-Dist: scipy
@@ -9,3 +10,14 @@ Requires-Dist: statsmodels
 Requires-Dist: matplotlib
 Provides-Extra: dev
 Requires-Dist: twine>4.0.2; extra == "dev"
+
+# MultiDST Package
+
+MultiDST Package is a Python package for multiple hypothesis testing in statistics. It provides implementations of various methods for controlling the family-wise error rate (FWER) and false discovery rate (FDR) in multiple hypothesis testing scenarios.
+
+## Installation
+
+You can install the MultiDST Package using pip:
+
+```bash
+pip install MultiDST_package
