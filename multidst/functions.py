@@ -86,7 +86,6 @@ def multitest(p_values, alpha=0.05, sigplot=False, results = False):
 
     return sig_dict
 
-import random
 
 # p_values = [random.uniform(0,1) for i in range(1000)]
 # multitest(p_values, alpha=0.05, sigplot=True, results = True)

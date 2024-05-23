@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name='multidst',
-    version='0.0.3',
+    version='0.1.2',
     packages=find_packages(),  # Automatically find all packages and subpackages
     install_requires=[
         'numpy', 
