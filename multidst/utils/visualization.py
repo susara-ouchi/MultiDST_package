@@ -226,7 +226,7 @@ def plot_power_effect(methods, effect_sizes, powers_s0, powers_s1, powers_s2=Non
 ###############################################################################################################
 
 ## Heatplot with sig indices
-def sigindex_plot(methods, sig_indices, title=None):
+def sigindex_plot(methods, sig_indices, title=None, save=False, filename = 'sig_index_plot.png'):
     sig_indices = [i if i else [] for i in sig_indices]
     # Create a matrix to represent the selected points for each method
     max_index = max(max(indices) for indices in sig_indices if indices!=[])
@@ -254,7 +254,16 @@ def sigindex_plot(methods, sig_indices, title=None):
     legend_box = Rectangle((0, 0), 1, 1, linewidth=1, edgecolor='none', facecolor='midnightblue', label='Significant')
     plt.legend(handles=[legend_box], loc='upper right')
     plt.tight_layout()
-    plt.show()
+
+    if save == True:
+        plt.savefig(filename)
+        # Close the plot to free memory
+        plt.close()
+    else:
+        plt.show()
+
+    return filename
+
 
     # return plt.gca().figure
 
@@ -264,7 +273,7 @@ methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
 # sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
 sig_indices = [[0,1],[1,2,10],[1,2,14],[0,2],[1,2,13],[1,2,8]]
 # sig_indices = [[0,1,2,3],[2,5],[],[],[1],[]]
-# sigindex_plot(methods, sig_indices, title="New Title")
+# sigindex_plot(methods, sig_indices, title="New Title", save=True)
 
 ########################################################################################################
 
