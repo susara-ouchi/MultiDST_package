@@ -2,7 +2,7 @@ import numpy as np
 from scipy import interpolate
 
 # Function to calculate adjusted q_values
-def q_adj_func(p_values, pi0=None, m=None, verbose=True):
+def q_adj_func(p_values, pi0=None, m=None, verbose=False):
     """
     Estimates q-values from p-values
 
@@ -40,11 +40,12 @@ def q_adj_func(p_values, pi0=None, m=None, verbose=True):
 
         tck = interpolate.splrep(lam, pi0, k=3)
         pi0 = interpolate.splev(lam[-1], tck)
-        if verbose:
+
+        if verbose==True:
             print("qvalues pi0=%.3f, estimated proportion of null features " % pi0)
 
         if pi0 > 1:
-            if verbose:
+            if verbose==True:
                 print("got pi0 > 1 (%.3f) while estimating qvalues, setting it to 1" % pi0)
             pi0 = 1.0
 
@@ -77,8 +78,10 @@ def q_value(p_values, alpha=0.05):
 p_values = [0.0005279804659690256, 0.05107595122255753, 0.005380747546894805, 0.008293070676726721, 0.015261930084251897, 0.09399292181095295, 0.04916062506442831, 0.08455877419751781, 0.026622720150619863, 0.060671184302609794, 0.014792473316734833, 0.029279038132892888, 0.039948575984906864, 0.05455860141093238, 0.06495646577203158, 0.01393407242591071, 0.06592036470024257, 0.03370049417508525, 0.08285377432610773, 0.055087308119778314]
 
 import random 
-p_values = [random.uniform(0.3,0.8) for i in range(100)]
+p_values = [random.uniform(0,0.9) for i in range(100)]
 q_results = q_value(p_values,alpha=0.05)
 q, sig_q = q_results[0], q_results[1]
 pi0 = q_value(p_values,alpha=0.05)[2]
+
+q_value(p_values,alpha=0.05)
 

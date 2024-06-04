@@ -270,9 +270,9 @@ sig_indices = [[0,1],[1,2,10],[1,2,14],[0,2],[1,2,13],[1,2,8]]
 
 # Fire histogram
 
-def multidst_hist(p_values, g1_index, title="plot",col1 = 'skyblue', col2 = 'skyblue',left='firing',right='non-firing'):
-      p_value_fire = [p_values[i] for i in g1_index]
-      p_value_nonfire = [p_values[i] for i in range(len(p_values)) if i not in g1_index]
+def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'skyblue', show_legend=False, left='firing',right='non-firing'):
+      p_value_nonfire = [p_values[i] for i in g2_index]
+      p_value_fire = [p_values[i] for i in range(len(p_values)) if i not in g2_index]
 
       hist_data = [p_value_fire, p_value_nonfire]
       plt.hist(hist_data, bins=30, alpha=1, label=[left, right], color=[col1, col2],
@@ -280,12 +280,12 @@ def multidst_hist(p_values, g1_index, title="plot",col1 = 'skyblue', col2 = 'sky
       plt.title(title, fontname='Times New Roman')
       plt.xlabel('p-value', fontname='Times New Roman')
       plt.ylabel('Frequency', fontname='Times New Roman')
-      plt.legend()
+      if show_legend == True:
+        plt.legend()
       plt.show()
 
     #   return plt.gca().figure
 
-p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
-g1_index = [0,1,2,5,9,10]
-g2_index = [index for index,_ in enumerate(p_values) if index not in g1_index]
-# multidst_hist(p_values,g1_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',left='firing',right='non-firing')
+# p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
+# g2_index = [2,5,9,10]
+# multidst_hist(p_values,g2_index, title="Histogram",col1 = 'skyblue', col2 = 'purple',show_legend=True, left='firing gene',right='non-firing')
