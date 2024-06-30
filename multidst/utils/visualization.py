@@ -283,6 +283,7 @@ def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'sky
       if show_legend == True:
         plt.legend()
       plt.show()
+      plt.savefig('hist.png', bbox_inches='tight')
 
     #   return plt.gca().figure
 
