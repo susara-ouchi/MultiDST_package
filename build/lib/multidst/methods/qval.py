@@ -4,7 +4,7 @@ from scipy import interpolate
 # Function to calculate adjusted q_values
 def q_adj_func(p_values, pi0=None, m=None, verbose=False):
     """
-    Estimates q-values from p-values
+    Estimates q-values from p-values using a method slightly modifying initial code by: https://github.com/nfusi/qvalue
 
     Args
     =====

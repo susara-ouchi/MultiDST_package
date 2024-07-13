@@ -15,9 +15,16 @@ from multidst.utils.visualization import sigindex_plot
 
 def multitest(p_values, alpha=0.05, sigplot=False, results = False):
     """
-    Conducts all 06 multiple testing methods to return significant indices under each method.
-    Input: list of p-values, threshold, weights (list)
-    Return:Dict of sig indices and q-value estimate by Storey's method
+    Conducts multiple testing methods to return significant indices under each of the 06 methods.
+
+    Parameters:
+    - p_values (list of float): List of p-values to be tested.
+    - alpha (float, optional): Significance threshold. Default is 0.05.
+    - sigplot (bool, optional): If True, generates a plot of significant indices for each method. Default is False.
+    - results (bool, optional): If True, prints a DataFrame with the count of significant indices for each method. Default is False.
+
+    Returns:
+    - sig_dict (dict): Dictionary with significant indices for each method and the pi0 estimate from Storey's Q-value method.
     """
     # 0 - Uncorrected
     sig_index = [index for index, p in enumerate(p_values) if p < alpha]
@@ -56,7 +63,7 @@ def multitest(p_values, alpha=0.05, sigplot=False, results = False):
     if sigplot == True:
         methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
         sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
-        sigindex_plot(methods, sig_indices, title="Significant Index Plot")
+        sigindex_plot(methods, sig_indices, title="Significant Index Plot", save_plot = False)
 
     sig_dict = {
         "Uncorrected": sig_index,
@@ -86,10 +93,10 @@ def multitest(p_values, alpha=0.05, sigplot=False, results = False):
 
     return sig_dict
 
-import random
+#import random
 
-p_values = [random.uniform(0,1) for i in range(1000)]
-multitest(p_values, alpha=0.05, sigplot=True, results = True)
-multitest(p_values, alpha=0.05, sigplot=False, results=True)
+#p_values = [random.uniform(0,1) for i in range(1000)]
+#multitest(p_values, alpha=0.05, sigplot=True, results = True)
+#multitest(p_values, alpha=0.05, sigplot=False, results=True)
 
 
