@@ -1,6 +1,8 @@
 from multidst.functions import multitest
 import random
 
+### Everything to do 
+
 # Create p_values
 p_values = [random.uniform(0,0.03) for i in range(1000)]
 
@@ -13,17 +15,26 @@ random.seed(2)
 weights =  [random.uniform(0,1) for i in range(1000)]
 weighted_p_list(p_values, weights=weights)
 
-res = multitest(p_values, alpha=0.05, sigplot=True)
-res['Bonferroni']
-
 # Carrying out MultiDST under Multi-weighting
 from multidst.utils.weighting import weighted_p_list
-from multidst.utils.visualization import sigindex_plot
-
 weighting = weighted_p_list(p_values, weights="multi",max_weight=1.5, min_weight = 0.5)
 weighting[0]
 
 
+### Visualizations & Results 
+
+# Getting results - this sigplot is not going to be saved (it is defined in the code to not save)
+multitest(p_values, alpha=0.05, sigplot=True)
+
+
+# Code to draw and save the sig plot
+from multidst.utils.visualization import sigindex_plot
+methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
+res = multitest(p_values, alpha=0.05, sigplot=True)
+sig_indices = [res['Bonferroni'], res['Holm'], res['SGoF'], res['BH'], res['BY'], res['Q-value']]
+sigindex_plot(methods,sig_indices,title="Significant index plot")
+
+# Code for the histogram - this is saved by default
 from multidst.utils.visualization import multidst_hist
 p_values = [random.uniform(0,0.5) for i in range(1000)]
 g2_index = []
