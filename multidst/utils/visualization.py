@@ -255,6 +255,7 @@ def sigindex_plot(methods, sig_indices, title=None):
     plt.legend(handles=[legend_box], loc='upper right')
     plt.tight_layout()
     plt.show()
+    plt.savefig('hist.png', bbox_inches='tight')
 
     # return plt.gca().figure
 
