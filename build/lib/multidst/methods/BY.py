@@ -1,8 +1,19 @@
 from statsmodels.stats.multitest import multipletests
 
 def BY_method(p_values, alpha=0.05, weights = None):
-    # from statsmodels.stats.multitest import multipletests
-    # Apply Benjamini-Yekutieli correction
+    """
+    Applies the Benjamini-Yekutieli (BY) method for controlling the False Discovery Rate (FDR) 
+    from the `statsmodels.stats.multitest` package.
+
+    Parameters:
+    - p_values (list of float): List of p-values to be corrected.
+    - alpha (float, optional): Significance threshold. Default is 0.05.
+    - weights (list of float, optional): Not used in this method. Included for consistency with other methods.
+
+    Returns:
+    - adj_p (list of float): List of adjusted p-values after applying the BY correction.
+    - sig_index (list of int): List of indices of significant p-values after the BY correction.
+    """
     adj_p = multipletests(p_values, method='fdr_by')[1]
     sig_index = [index for index,p in enumerate(adj_p) if p < alpha]
     
