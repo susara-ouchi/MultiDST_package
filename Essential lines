@@ -6,8 +6,7 @@ python setup.py sdist bdist_wheel
 
 ## Token
 export TWINE_USERNAME = __token__
-export TWINE_PASSWORD = pypi-AgEIcHlwaS5vcmcCJGFiMjNkZjgzLTBjOWEtNDk2OC04MzcwLTk2ZjlmNDAzY2M2NAACKlszLCJlN2I1ZmVjMy04ODQ4LTRhMDEtYWVmNS0zMjc0YTZlMzk5YjYiXQAABiAv2IzAozfFWwDRBkpQh7QLSOibev937JfHj9TETmGVQQ
-
+export TWINE_PASSWORD = ***
 
 # Setting up Vertual Env
 > python -m venv .venv
