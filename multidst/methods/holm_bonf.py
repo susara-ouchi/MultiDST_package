@@ -4,8 +4,18 @@ from statsmodels.stats.multitest import multipletests
 import numpy as np
 
 def holm(p_values, alpha=0.05):
-    # from statsmodels.stats.multitest import multipletests
-    # Apply Holm-Bonferroni correction
+    """
+    Applies the Holm-Bonferroni method for controlling the Family-Wise Error Rate (FWER) 
+    from the `statsmodels.stats.multitest` package.
+
+    Parameters:
+    - p_values (list of float): List of p-values to be corrected.
+    - alpha (float, optional): Significance threshold. Default is 0.05.
+
+    Returns:
+    - adj_p (list of float): List of adjusted p-values after applying the Holm-Bonferroni correction.
+    - sig_index (list of int): List of indices of significant p-values after the Holm-Bonferroni correction.
+    """
     adj_p = multipletests(p_values, method='holm')[1]
     sig_index = [index for index,p in enumerate(adj_p) if p < alpha]
         

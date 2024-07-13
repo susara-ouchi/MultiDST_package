@@ -75,6 +75,20 @@ from scipy.optimize import minimize
 import numpy as np
 
 def optimize_weights(p_values, l0, l1, l2, l3, l4, l5, l6, k2=1.5, k1=0.5):
+    """
+    Optimize weights for a set of p-values under given constraints.
+
+    Parameters:
+    - p_values (list of float): List of p-values to be weighted.
+    - l0, l1, l2, l3, l4, l5, l6 (lists of int): Indices indicating the partitions of p_values.
+    - k2 (float, optional): Scaling factor for positive weights. Default is 1.5.
+    - k1 (float, optional): Scaling factor for negative weights. Default is 0.5.
+
+    Returns:
+    - optimal_weights (list of float): Optimized weights after transformation.
+    - weighted_list (list of float): Weighted p-values.
+    - optimal_weights1 (list of float): Initial optimized weights before transformation.
+    """
     m = len(p_values)
 
     # Assert that the length of p_values is equal to the sum of lengths of l0 to l6
