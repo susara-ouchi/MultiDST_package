@@ -2,6 +2,20 @@ import numpy as np
 from scipy.stats import chi2
 
 def sgof_test(p_values, alpha):
+    """
+    Applies the Sequential Goodness of Fit (SGoF) test for multiple hypothesis testing.
+
+    Parameters:
+    - p_values (list of float): List of p-values to be tested.
+    - alpha (float): Significance threshold.
+
+    Returns:
+    - significant_tests (list of float): List of significant p-values after applying the SGoF test.
+    - significant_indices (list of int): List of indices of significant p-values after the SGoF test.
+
+    The function sorts the p-values, counts the number of p-values below the threshold (R), and performs
+    a chi-square test to iteratively adjust R. It returns the significant p-values and their indices.
+    """
     # Step 01: Sort p-values in ascending order
     sorted_p_values = np.sort(p_values)
     
