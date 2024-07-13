@@ -153,11 +153,11 @@ def sigindex_plot(methods, sig_indices, title=None, save_plot=True):
     legend_box = Rectangle((0, 0), 1, 1, linewidth=1, edgecolor='none', facecolor='midnightblue', label='Significant')
     plt.legend(handles=[legend_box], loc='upper right')
     plt.tight_layout()
-    plt.show()
+    
     if save_plot == True:
         plt.savefig('sigplot.png', bbox_inches='tight')
     # return plt.gca().figure
-
+    plt.show()
 # Example usage
 # methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
 # sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
@@ -181,8 +181,8 @@ def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'sky
       plt.ylabel('Frequency', fontname='Times New Roman')
       if show_legend == True:
         plt.legend()
-      plt.show()
       plt.savefig('hist.png', bbox_inches='tight')
+      plt.show()
     # return plt.gca().figure
 
 # p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
