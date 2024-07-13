@@ -13,12 +13,16 @@ random.seed(2)
 weights =  [random.uniform(0,1) for i in range(1000)]
 weighted_p_list(p_values, weights=weights)
 
-multitest(p_values, alpha=0.05, sigplot=True)
+res = multitest(p_values, alpha=0.05, sigplot=True)
+res['Bonferroni']
 
 # Carrying out MultiDST under Multi-weighting
 from multidst.utils.weighting import weighted_p_list
+from multidst.utils.visualization import sigindex_plot
+
 weighting = weighted_p_list(p_values, weights="multi",max_weight=1.5, min_weight = 0.5)
 weighting[0]
+
 
 from multidst.utils.visualization import multidst_hist
 p_values = [random.uniform(0,0.5) for i in range(1000)]

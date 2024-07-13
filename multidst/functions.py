@@ -56,7 +56,7 @@ def multitest(p_values, alpha=0.05, sigplot=False, results = False):
     if sigplot == True:
         methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
         sig_indices = [sig_bonf_p, sig_holm_p, sig_sgof_p, sig_bh_p, sig_by_p, sig_q]
-        sigindex_plot(methods, sig_indices, title="Significant Index Plot")
+        sigindex_plot(methods, sig_indices, title="Significant Index Plot", save_plot = False)
 
     sig_dict = {
         "Uncorrected": sig_index,
