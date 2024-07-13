@@ -156,7 +156,6 @@ def sigindex_plot(methods, sig_indices, title=None, save_plot=True):
     plt.show()
     if save_plot == True:
         plt.savefig('sigplot.png', bbox_inches='tight')
-
     # return plt.gca().figure
 
 # Example usage
