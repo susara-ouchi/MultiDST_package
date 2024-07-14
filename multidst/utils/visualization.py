@@ -55,7 +55,7 @@ def sigindex_plot(methods, sig_indices, title=None, save_plot=True,timestamp="")
 ########################################################################################################
 #### Plot 02: Fire histogram
 
-def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'skyblue', show_legend=False, left='firing',right='non-firing',timestamp=""):
+def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'skyblue', show_legend=False, left='firing',right='non-firing',save_plot=True,timestamp=""):
       """
       Generates a histogram comparing two sets of p-values and saves the plot as an image file.
 
@@ -80,7 +80,8 @@ def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'sky
       plt.ylabel('Frequency', fontname='Times New Roman')
       if show_legend == True:
         plt.legend()
-      plt.savefig(f'hist{timestamp}.png', bbox_inches='tight')
+      if save_plot == True:
+        plt.savefig(f'hist{timestamp}.png', bbox_inches='tight')
       plt.show()
     # return plt.gca().figure
 
