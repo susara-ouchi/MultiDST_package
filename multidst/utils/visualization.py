@@ -9,7 +9,7 @@ from matplotlib.patches import Rectangle
 
 ################################################################################################
 #### Plot 01: Sigplot -> Heatplot with significant indices
-def sigindex_plot(methods, sig_indices, title=None, save_plot=True,timestamp=""):
+def sigindex_plot(methods, sig_indices, title=None, save_plot=False,timestamp=""):
     """
     Generates a heatmap plot to visualize the indices of significant points selected by different methods.
 
@@ -55,7 +55,7 @@ def sigindex_plot(methods, sig_indices, title=None, save_plot=True,timestamp="")
 ########################################################################################################
 #### Plot 02: Fire histogram
 
-def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'skyblue', show_legend=False, left='firing',right='non-firing',save_plot=True,timestamp=""):
+def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'skyblue', show_legend=False, left='firing',right='non-firing',save_plot=False,timestamp=""):
       """
       Generates a histogram comparing two sets of p-values and saves the plot as an image file.
 
