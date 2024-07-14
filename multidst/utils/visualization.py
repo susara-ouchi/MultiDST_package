@@ -9,7 +9,7 @@ from matplotlib.patches import Rectangle
 
 ################################################################################################
 #### Plot 01: Sigplot -> Heatplot with significant indices
-def sigindex_plot(methods, sig_indices, title=None, save_plot=True):
+def sigindex_plot(methods, sig_indices, title=None, save_plot=True,timestamp=""):
     """
     Generates a heatmap plot to visualize the indices of significant points selected by different methods.
 
@@ -48,14 +48,14 @@ def sigindex_plot(methods, sig_indices, title=None, save_plot=True):
     plt.tight_layout()
     
     if save_plot == True:
-        plt.savefig('sigplot.png', bbox_inches='tight')
+        plt.savefig(f'sigplot{timestamp}.png', bbox_inches='tight')
     # return plt.gca().figure
     plt.show()
 
 ########################################################################################################
 #### Plot 02: Fire histogram
 
-def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'skyblue', show_legend=False, left='firing',right='non-firing'):
+def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'skyblue', show_legend=False, left='firing',right='non-firing',timestamp=""):
       """
       Generates a histogram comparing two sets of p-values and saves the plot as an image file.
 
@@ -80,7 +80,7 @@ def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'sky
       plt.ylabel('Frequency', fontname='Times New Roman')
       if show_legend == True:
         plt.legend()
-      plt.savefig('hist.png', bbox_inches='tight')
+      plt.savefig(f'hist{timestamp}.png', bbox_inches='tight')
       plt.show()
     # return plt.gca().figure
 
