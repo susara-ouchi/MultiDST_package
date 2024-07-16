@@ -48,7 +48,7 @@ def sigindex_plot(methods, sig_indices, title=None, save_plot=False,timestamp=""
     plt.tight_layout()
     
     if save_plot == True:
-        plt.savefig(f'sigplot{timestamp}.png', bbox_inches='tight')
+        plt.savefig(f'images/sigplot{timestamp}.png', bbox_inches='tight')
     # return plt.gca().figure
     plt.show()
 
@@ -81,7 +81,7 @@ def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'sky
       if show_legend == True:
         plt.legend()
       if save_plot == True:
-        plt.savefig(f'hist{timestamp}.png', bbox_inches='tight')
+        plt.savefig(f'images/hist{timestamp}.png', bbox_inches='tight')
       plt.show()
     # return plt.gca().figure
 
