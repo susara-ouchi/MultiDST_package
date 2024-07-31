@@ -31,14 +31,17 @@ multitest(p_values, alpha=0.05, sigplot=True)
 from multidst.utils.visualization import sigindex_plot
 methods = ['Bonferroni', 'Holm', 'SGoF', 'BH', 'BY', 'Q value']
 res = multitest(p_values, alpha=0.05, sigplot=True)
+
+# Not showing plot, not saving plot
 sig_indices = [res['Bonferroni'], res['Holm'], res['SGoF'], res['BH'], res['BY'], res['Q-value']]
-sigindex_plot(methods,sig_indices,title="Significant index plot",save_plot=True)
+sigindex_plot(methods,sig_indices,title="Significant index plot",save_plot=False,plot_show = False)
 
 # Code for the histogram - this is saved 
 from multidst.utils.visualization import multidst_hist
 p_values = [random.uniform(0,0.5) for i in range(1000)]
 g2_index = []
 multidst_hist(p_values, g2_index, title="Histogram of p-values",col1 = 'skyblue', col2 = 'purple', save_plot=True)
+multidst_hist(p_values, g2_index, title="Histogram of p-values",col1 = 'skyblue', col2 = 'purple', save_plot=False, plot_show = False)
 
 p_values = [0.1,0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95]
 g2_index = [2,5,9,10]
