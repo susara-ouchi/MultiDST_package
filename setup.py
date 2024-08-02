@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='multidst',
-    version='0.1.6',
+    version='0.1.7',
     packages=find_packages(),  # Automatically find all packages and subpackages
     install_requires=[
         'numpy', 
