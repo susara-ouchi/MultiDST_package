@@ -52,6 +52,7 @@ def sigindex_plot(methods, sig_indices, title=None, save_plot=False, plot_show=T
     # return plt.gca().figure
     if plot_show == True:
         plt.show()
+    plt.close()
 
 ########################################################################################################
 #### Plot 02: Fire histogram
@@ -87,6 +88,7 @@ def multidst_hist(p_values, g2_index, title="plot",col1 = 'skyblue', col2 = 'sky
       if plot_show == True:
         plt.show()
     # return plt.gca().figure
+      plt.close()
 
 ############################################################################################
 ####################### OTHER PLOTS (Optional) #############################################
