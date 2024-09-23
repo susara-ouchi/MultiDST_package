@@ -56,7 +56,7 @@ def multitest(p_values, alpha=0.05, sigplot=False, results = False):
     # by_count = len(sig_by_p)
 
     # 6 - Qval
-    q_results = q_value(p_values, alpha=0.05)
+    q_results = q_value(p_values, alpha=alpha)
     q, sig_q,pi0_est = q_results[0], q_results[1],q_results[2]
     # q_count = len(sig_q)
 
