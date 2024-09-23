@@ -67,7 +67,7 @@ def q_adj_func(p_values, pi0=None, m=None, verbose=False):
     return q_adj, pi0
 
 #Define function for Q value Procedure 
-def q_value(p_values, alpha=0.05):
+def q_value(p_values, alpha):
     # Q value correction
     adj_p_f = q_adj_func(p_values)
     adj_p, pi0 = adj_p_f[0],adj_p_f[1]
