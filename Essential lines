@@ -1,5 +1,5 @@
 # To install package locally
-pip install dist/multidst-0.1.4-py3-none-any.whl --force-reinstall
+pip install dist/multidst-0.1.8-py3-none-any.whl --force-reinstall
 
 # To get wheel file
 python setup.py sdist bdist_wheel
